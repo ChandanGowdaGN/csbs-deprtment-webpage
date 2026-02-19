@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Suggestions - MITM CSBS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:#f4f6fa;
+}
+
+.topbar{
+background:#2f3c8f;
+color:white;
+padding:8px 40px;
+display:flex;
+justify-content:space-between;
+font-size:14px;
+}
+
+.header{
+background:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+height:75px;
+}
+
+.title h1{
+color:#2f3c8f;
+font-size:26px;
+}
+
+.title h3{
+color:#ff6600;
+}
+
+.navbar{
+background:#2f3c8f;
+}
+
+.navbar ul{
+display:flex;
+list-style:none;
+padding-left:40px;
+}
+
+.navbar ul li a{
+display:block;
+padding:15px 20px;
+color:white;
+text-decoration:none;
+}
+
+.navbar ul li a:hover{
+background:#ff6600;
+}
+
+.container{
+max-width:900px;
+margin:40px auto;
+padding:30px;
+background:white;
+border-radius:8px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.container h1{
+color:#2f3c8f;
+margin-bottom:30px;
+text-align:center;
+}
+
+.form-section{
+margin-bottom:40px;
+padding:25px;
+background:#f9f9f9;
+border-radius:8px;
+border:2px solid #2f3c8f;
+}
+
+.form-section h2{
+color:#2f3c8f;
+margin-bottom:20px;
+font-size:20px;
+}
+
+.form-group{
+margin-bottom:15px;
+}
+
+label{
+display:block;
+color:#2f3c8f;
+font-weight:600;
+margin-bottom:8px;
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:6px;
+font-family:Poppins;
+font-size:14px;
+}
+
+input:focus, textarea:focus{
+outline:none;
+border-color:#ff6600;
+box-shadow:0 0 5px rgba(255, 102, 0, 0.3);
+}
+
+textarea{
+resize:vertical;
+min-height:120px;
+}
+
+.submit-btn{
+background:#ff6600;
+color:white;
+padding:12px 30px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+font-size:16px;
+transition:background 0.3s;
+}
+
+.submit-btn:hover{
+background:#e55a00;
+}
+
+.suggestions-section h2{
+color:#2f3c8f;
+margin-bottom:20px;
+font-size:20px;
+}
+
+.suggestion-item{
+background:white;
+padding:20px;
+margin:15px 0;
+border-left:5px solid #ff6600;
+border-radius:6px;
+box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+.suggestion-item h3{
+color:#2f3c8f;
+margin-bottom:8px;
+}
+
+.suggestion-item p{
+color:#555;
+line-height:1.6;
+margin:8px 0;
+}
+
+.suggestion-meta{
+color:#999;
+font-size:12px;
+margin-top:10px;
+}
+
+.footer{
+background:#2f3c8f;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+<div>📞 9620228021 | ✉️ csbs@mitm.edu.in</div>
+
+<div>MITM Mysore CSBS Department</div>
+
+<div></div>
+
+</div>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="logo">
+
+<img src="image.png">
+
+<div class="title">
+
+<h1>Maharaja Institute of Technology Mysore</h1>
+
+<h3>Department of Computer Science and Business Systems</h3>
+
+</div>
+
+</div>
+
+<div>
+
+<img src="image copy1.png" alt="Department Logo" style="height:75px;">
+
+</div>
+
+</div>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About CSBS</a></li>
+
+<li><a href="faculty.html">Faculty</a></li>
+
+<li><a href="students.html">Students</a></li>
+
+<li><a href="placements.html">Placements</a></li>
+
+<li><a href="gallery.html">Gallery</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="suggestion.html">Suggestions</a></li>
+
+<li><a href="admin.html">Admin</a></li>
+
+</ul>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+<h1>💡 Student Suggestions</h1>
+
+<div class="form-section">
+
+<h2>Share Your Feedback</h2>
+
+<p style="color:#666;margin-bottom:20px">We value your suggestions and feedback to improve our department. Please share your ideas below.</p>
+
+<div class="form-group">
+
+<label>Your Name</label>
+
+<input type="text" id="suggName" placeholder="Enter your name">
+
+</div>
+
+<div class="form-group">
+
+<label>Your Email</label>
+
+<input type="email" id="suggEmail" placeholder="Enter your email">
+
+</div>
+
+<div class="form-group">
+
+<label>Suggestion/Feedback</label>
+
+<textarea id="suggText" placeholder="Share your suggestion or feedback..."></textarea>
+
+</div>
+
+<button class="submit-btn" onclick="submitSuggestion()">Submit Suggestion</button>
+
+</div>
+
+<div class="suggestions-section">
+
+<h2>Recent Suggestions</h2>
+
+<div id="suggestions-list"></div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+© MITM CSBS Department 2026
+
+</div>
+
+<script>
+
+let suggestionsCache=[];
+let pageReady=false;
+
+function displaySuggestions(){
+if(!pageReady) return;
+const list=document.getElementById('suggestions-list');
+list.innerHTML='';
+if(suggestionsCache.length===0){
+list.innerHTML='<p style="color:#999;text-align:center;padding:20px">No suggestions yet. Be the first to share!</p>';
+return;
+}
+for(let i=0;i<suggestionsCache.length;i++){
+const s=suggestionsCache[i];
+list.innerHTML+='<div class="suggestion-item"><h3>'+s.name+'</h3><p>'+s.text+'</p><div class="suggestion-meta">📧 '+s.email+' | '+s.date+'</div></div>';
+}
+}
+
+function submitSuggestion(){
+const name=document.getElementById('suggName').value.trim();
+const email=document.getElementById('suggEmail').value.trim();
+const text=document.getElementById('suggText').value.trim();
+
+if(!name||!email||!text){
+alert('Please fill in all fields');
+return;
+}
+
+if(!email.includes('@')){
+alert('Please enter a valid email');
+return;
+}
+
+const now=new Date();
+const date=now.toLocaleDateString();
+const time=now.toLocaleTimeString();
+
+suggestionsCache.unshift({name:name,email:email,text:text,date:date+' '+time});
+localStorage.setItem('suggestions',JSON.stringify(suggestionsCache));
+
+document.getElementById('suggName').value='';
+document.getElementById('suggEmail').value='';
+document.getElementById('suggText').value='';
+
+alert('Thank you! Your suggestion has been recorded.');
+displaySuggestions();
+}
+
+function loadSuggestions(){
+try{
+suggestionsCache=JSON.parse(localStorage.getItem('suggestions'))||[];
+}catch(e){
+suggestionsCache=[];
+}
+pageReady=true;
+displaySuggestions();
+}
+
+loadSuggestions();
+
+</script>
+
+</body>
+
+</html>

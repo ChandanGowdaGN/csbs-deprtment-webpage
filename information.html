@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Information - MITM CSBS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:#f4f6fa;
+}
+
+.topbar{
+background:#2f3c8f;
+color:white;
+padding:8px 40px;
+display:flex;
+justify-content:space-between;
+font-size:14px;
+}
+
+.header{
+background:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+height:75px;
+}
+
+.title h1{
+color:#2f3c8f;
+font-size:26px;
+}
+
+.title h3{
+color:#ff6600;
+}
+
+.navbar{
+background:#2f3c8f;
+}
+
+.navbar ul{
+display:flex;
+list-style:none;
+padding-left:40px;
+flex-wrap:wrap;
+}
+
+.navbar ul li a{
+display:block;
+padding:15px 20px;
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+.navbar ul li a:hover{
+background:#ff6600;
+}
+
+.container{
+max-width:1000px;
+margin:40px auto;
+padding:30px;
+background:white;
+border-radius:8px;
+box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.container h1{
+color:#2f3c8f;
+margin-bottom:30px;
+text-align:center;
+}
+
+.tab-section{
+display:flex;
+gap:10px;
+margin-bottom:30px;
+flex-wrap:wrap;
+border-bottom:2px solid #eee;
+}
+
+.tab-btn{
+background:transparent;
+border:none;
+padding:12px 20px;
+color:#2f3c8f;
+font-weight:600;
+cursor:pointer;
+border-bottom:3px solid transparent;
+transition:all 0.3s;
+}
+
+.tab-btn.active{
+border-bottom-color:#ff6600;
+color:#ff6600;
+}
+
+.tab-btn:hover{
+color:#ff6600;
+}
+
+.info-section{
+display:none;
+}
+
+.info-section.active{
+display:block;
+}
+
+.info-card{
+background:#f9f9f9;
+padding:20px;
+margin:15px 0;
+border-left:5px solid #ff6600;
+border-radius:6px;
+}
+
+.info-card h3{
+color:#2f3c8f;
+margin-bottom:10px;
+}
+
+.info-card p{
+color:#555;
+line-height:1.6;
+}
+
+.time-grid{
+display:grid;
+grid-template-columns:auto 1fr;
+gap:15px;
+margin:15px 0;
+}
+
+.time-slot{
+background:white;
+padding:15px;
+border-radius:6px;
+border:1px solid #ddd;
+}
+
+.time-slot strong{
+color:#2f3c8f;
+}
+
+.event-list{
+list-style:none;
+padding:0;
+}
+
+.event-list li{
+background:white;
+padding:15px;
+margin:10px 0;
+border-radius:6px;
+border-left:4px solid #ff6600;
+}
+
+.event-list li strong{
+color:#2f3c8f;
+}
+
+.event-date{
+color:#ff6600;
+font-weight:600;
+}
+
+.notice-banner{
+background:linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+color:white;
+padding:20px;
+border-radius:8px;
+margin-bottom:30px;
+}
+
+.notice-banner h2{
+margin-bottom:10px;
+}
+
+.footer{
+background:#2f3c8f;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+<div>📞 9620228021 | ✉️ csbs@mitm.edu.in</div>
+
+<div>MITM Mysore CSBS Department</div>
+
+<div></div>
+
+</div>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div class="logo">
+
+<img src="image.png">
+
+<div class="title">
+
+<h1>Maharaja Institute of Technology Mysore</h1>
+
+<h3>Department of Computer Science and Business Systems</h3>
+
+</div>
+
+</div>
+
+<div>
+
+<img src="image copy1.png" alt="Department Logo" style="height:75px;">
+
+</div>
+
+</div>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About CSBS</a></li>
+
+<li><a href="faculty.html">Faculty</a></li>
+
+<li><a href="students.html">Students</a></li>
+
+<li><a href="placements.html">Placements</a></li>
+
+<li><a href="gallery.html">Gallery</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+<li><a href="information.html">Information</a></li>
+
+<li><a href="suggestion.html">Suggestions</a></li>
+
+<li><a href="admin.html">Admin</a></li>
+
+</ul>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+<h1>📋 Student Information</h1>
+
+<div class="notice-banner">
+<h2>📢 Important Notice</h2>
+<p>Find all important information including timetables, events, and announcements here.</p>
+</div>
+
+<div class="tab-section">
+<button class="tab-btn active" onclick="showTab('timetable')">📚 Timetable</button>
+<button class="tab-btn" onclick="showTab('events')">🎉 Events</button>
+<button class="tab-btn" onclick="showTab('notices')">📌 Notices</button>
+</div>
+
+<!-- TIMETABLE TAB -->
+<div id="timetable" class="info-section active">
+<h2 style="color:#2f3c8f;margin-bottom:20px">Class Timetable</h2>
+
+<div class="info-card">
+<h3>1st Year Timetable</h3>
+<div class="time-grid">
+<strong>Monday-Friday</strong>
+<div>
+<p><strong>9:00 AM - 10:00 AM:</strong> Problem Solving & Programming</p>
+<p><strong>10:00 AM - 11:00 AM:</strong> Data Structures</p>
+<p><strong>11:15 AM - 12:15 PM:</strong> Database Management Systems</p>
+<p><strong>1:15 PM - 2:15 PM:</strong> Web Development</p>
+<p><strong>2:15 PM - 3:15 PM:</strong> Practical Lab</p>
+</div>
+</div>
+</div>
+
+<div class="info-card">
+<h3>2nd Year Timetable</h3>
+<div class="time-grid">
+<strong>Monday-Friday</strong>
+<div>
+<p><strong>9:00 AM - 10:00 AM:</strong> Advanced Java</p>
+<p><strong>10:00 AM - 11:00 AM:</strong> Software Engineering</p>
+<p><strong>11:15 AM - 12:15 PM:</strong> Cloud Computing</p>
+<p><strong>1:15 PM - 2:15 PM:</strong> Business Management</p>
+<p><strong>2:15 PM - 3:15 PM:</strong> Project Work</p>
+</div>
+</div>
+</div>
+
+<div class="info-card">
+<h3>3rd Year Timetable</h3>
+<div class="time-grid">
+<strong>Monday-Friday</strong>
+<div>
+<p><strong>9:00 AM - 10:00 AM:</strong> Artificial Intelligence</p>
+<p><strong>10:00 AM - 11:00 AM:</strong> Enterprise Resource Planning</p>
+<p><strong>11:15 AM - 12:15 PM:</strong> Data Analytics</p>
+<p><strong>1:15 PM - 2:15 PM:</strong> Entrepreneurship</p>
+<p><strong>2:15 PM - 4:15 PM:</strong> Capstone Project</p>
+</div>
+</div>
+</div>
+
+<div class="info-card">
+<h3>4th Year Timetable</h3>
+<div class="time-grid">
+<strong>As per Project Requirements</strong>
+<div>
+<p><strong>Full Day:</strong> Final Year Project & Internship</p>
+<p><strong>Consultation Hours:</strong> 2:00 PM - 3:00 PM (Monday & Wednesday)</p>
+<p><strong>Seminar & Presentations:</strong> Every Friday 2:00 PM onwards</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- EVENTS TAB -->
+<div id="events" class="info-section">
+<h2 style="color:#2f3c8f;margin-bottom:20px">Upcoming Events</h2>
+
+<ul class="event-list">
+<li>
+<strong>Code Vault 2026 Hackathon</strong><br>
+<span class="event-date">📅 February 28, 2026</span><br>
+<p>24-hour hackathon where students build innovative projects. Registration open for all years.</p>
+</li>
+<li>
+<strong>Azure Cloud Workshop</strong><br>
+<span class="event-date">📅 March 15, 2026</span><br>
+<p>Industry expert training on Microsoft Azure Cloud Services. Certified training with certificate.</p>
+</li>
+<li>
+<strong>Recruitment Drive - Infosys</strong><br>
+<span class="event-date">📅 March 20-22, 2026</span><br>
+<p>Campus placement drive for 3rd and 4th year students. Eligible candidates register by March 10.</p>
+</li>
+<li>
+<strong>Project Expo 2026</strong><br>
+<span class="event-date">📅 April 5, 2026</span><br>
+<p>Final year students showcase their projects. Open to faculty, students, and industry partners.</p>
+</li>
+<li>
+<strong>Startup Mahakumbh</strong><br>
+<span class="event-date">📅 April 25, 2026</span><br>
+<p>Entrepreneurship event with pitch competitions, investor talks, and mentorship sessions.</p>
+</li>
+<li>
+<strong>Summer Internship Program</strong><br>
+<span class="event-date">📅 June - July, 2026</span><br>
+<p>2-month internship program with leading IT companies. Apply now for summer 2026.</p>
+</li>
+</ul>
+</div>
+
+<!-- NOTICES TAB -->
+<div id="notices" class="info-section">
+<h2 style="color:#2f3c8f;margin-bottom:20px">Important Notices & Announcements</h2>
+
+<div class="info-card" style="border-left-color:#d32f2f">
+<h3>📌 Semester Exam Schedule Released</h3>
+<p><strong>Date:</strong> January 15, 2026</p>
+<p>The semester exam schedule has been released. Check your portal for date, time, and venue. Mid-semester exams will be conducted from January 20 to February 5, 2026.</p>
+</div>
+
+<div class="info-card">
+<h3>📌 Library Timings Extended</h3>
+<p><strong>Date:</strong> January 10, 2026</p>
+<p>During exam season, the library will remain open until 8:00 PM on weekdays. Additional database access and reference materials available. Student ID card required for extended hours.</p>
+</div>
+
+<div class="info-card">
+<h3>📌 Placement Eligibility Criteria</h3>
+<p><strong>Date:</strong> January 5, 2026</p>
+<p>To be eligible for campus placements, students must maintain minimum CGPA of 6.5 and no backlogs. Register on the placement portal by January 31, 2026.</p>
+</div>
+
+<div class="info-card">
+<h3>📌 Lab Access & Infrastructure Updates</h3>
+<p><strong>Date:</strong> December 28, 2025</p>
+<p>New lab equipment installed in CS Lab-2. All students can access labs from 9 AM to 6 PM. Contact lab assistant for login credentials and training.</p>
+</div>
+
+<div class="info-card">
+<h3>📌 Grievance Redressal Cell Active</h3>
+<p><strong>Date:</strong> December 20, 2025</p>
+<p>Department Grievance Cell is now active. Submit complaints via email to csbs@mitm.edu.in with subject "GRIEVANCE" or meet in office room 205 on Tuesdays 2-4 PM.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+© MITM CSBS Department 2026
+
+</div>
+
+<script>
+
+function showTab(tabName){
+const sections=document.querySelectorAll('.info-section');
+const buttons=document.querySelectorAll('.tab-btn');
+
+sections.forEach(section=>{
+section.classList.remove('active');
+});
+
+buttons.forEach(btn=>{
+btn.classList.remove('active');
+});
+
+document.getElementById(tabName).classList.add('active');
+event.target.classList.add('active');
+}
+
+</script>
+
+</body>
+
+</html>

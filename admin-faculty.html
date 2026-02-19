@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Faculty - MITM CSBS Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+body{background:#f4f6fa}
+.container{max-width:1000px;margin:40px auto;padding:30px;background:white;border-radius:8px}
+h1{color:#2f3c8f;margin-bottom:30px}
+.form-group{margin-bottom:15px}
+label{display:block;color:#2f3c8f;font-weight:600;margin-bottom:5px}
+input{width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-family:Poppins}
+button{background:#ff6600;color:white;padding:12px 24px;border:none;border-radius:4px;cursor:pointer;font-weight:600}
+button:hover{background:#e55a00}
+.faculty-item{background:#f0f2f5;padding:15px;margin:10px 0;border-left:4px solid #ff6600;border-radius:4px;display:flex;justify-content:space-between;align-items:center}
+.faculty-item h3{color:#2f3c8f}
+.delete-btn{background:#d32f2f;padding:8px 16px;font-size:12px}
+.delete-btn:hover{background:#b81c1c}
+.back-btn{background:#2f3c8f;padding:10px 20px;margin-bottom:20px}
+.back-btn:hover{background:#1f2456}
+</style>
+</head>
+<body>
+<div class="container">
+<div style="display:flex;gap:10px">
+<button class="back-btn" onclick="window.location.href='admin-dashboard.html'">← Back to Dashboard</button>
+<button class="back-btn" onclick="window.location.href='index.html'">🏠 Home</button>
+</div>
+<h1>👨‍🏫 Add Faculty</h1>
+<div style="margin-bottom:30px">
+<h3 style="color:#2f3c8f;margin-bottom:15px">Add New Faculty Member</h3>
+<div class="form-group">
+<label>Name</label>
+<input type="text" id="facName" placeholder="Enter faculty name">
+</div>
+<div class="form-group">
+<label>Qualification</label>
+<input type="text" id="facQual" placeholder="Enter qualification">
+</div>
+<button onclick="addFaculty()">Add Faculty</button>
+</div>
+<h3 style="color:#2f3c8f;margin-top:30px">Faculty List</h3>
+<div id="faculty-list"></div>
+</div>
+<script>
+let facultyCache=[];
+let pageReady=false;
+function displayFaculty(){
+if(!pageReady) return;
+const list=document.getElementById('faculty-list');
+list.innerHTML='';
+for(let i=0;i<facultyCache.length;i++){
+const f=facultyCache[i];
+list.innerHTML+='<div class="faculty-item"><div><h3>'+f.name+'</h3><p>'+f.qual+'</p></div><button class="delete-btn" onclick="deleteFaculty('+i+')">Delete</button></div>';
+}
+}
+function addFaculty(){
+const name=document.getElementById('facName').value.trim();
+const qual=document.getElementById('facQual').value.trim();
+if(!name||!qual){alert('Fill all fields');return}
+facultyCache.unshift({name:name,qual:qual});
+localStorage.setItem('faculty',JSON.stringify(facultyCache));
+document.getElementById('facName').value='';
+document.getElementById('facQual').value='';
+alert('Faculty added');
+displayFaculty();
+}
+function deleteFaculty(i){
+facultyCache.splice(i,1);
+localStorage.setItem('faculty',JSON.stringify(facultyCache));
+displayFaculty();
+}
+function loadFaculty(){
+try{
+facultyCache=JSON.parse(localStorage.getItem('faculty'))||[];
+}catch(e){
+facultyCache=[];
+}
+pageReady=true;
+displayFaculty();
+}
+loadFaculty();
+</script>
+</body>
+</html>

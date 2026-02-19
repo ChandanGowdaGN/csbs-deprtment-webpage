@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Achievements - MITM CSBS Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+body{background:#f4f6fa}
+.container{max-width:1000px;margin:40px auto;padding:30px;background:white;border-radius:8px}
+h1{color:#2f3c8f;margin-bottom:30px}
+.form-group{margin-bottom:15px}
+label{display:block;color:#2f3c8f;font-weight:600;margin-bottom:5px}
+input, select, textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-family:Poppins}
+textarea{resize:vertical;min-height:60px}
+button{background:#ff6600;color:white;padding:12px 24px;border:none;border-radius:4px;cursor:pointer;font-weight:600}
+button:hover{background:#e55a00}
+.achievement-item{background:#f0f2f5;padding:15px;margin:10px 0;border-left:4px solid #ff6600;border-radius:4px;display:flex;justify-content:space-between;align-items:center}
+.achievement-item h3{color:#2f3c8f}
+.delete-btn{background:#d32f2f;padding:8px 16px;font-size:12px}
+.delete-btn:hover{background:#b81c1c}
+.back-btn{background:#2f3c8f;padding:10px 20px;margin-bottom:20px}
+.back-btn:hover{background:#1f2456}
+</style>
+</head>
+<body>
+<div class="container">
+<div style="display:flex;gap:10px">
+<button class="back-btn" onclick="window.location.href='admin-dashboard.html'">← Back to Dashboard</button>
+<button class="back-btn" onclick="window.location.href='index.html'">🏠 Home</button>
+</div>
+<h1>🏆 Manage Achievements</h1>
+<div style="margin-bottom:30px">
+<h3 style="color:#2f3c8f;margin-bottom:15px">Add New Achievement</h3>
+<div class="form-group">
+<label>Student Name</label>
+<input type="text" id="achName" placeholder="Enter student name">
+</div>
+<div class="form-group">
+<label>Category</label>
+<select id="achCat">
+<option>Select Category</option>
+<option>Academic</option>
+<option>Sports</option>
+<option>Technical</option>
+<option>Cultural</option>
+</select>
+</div>
+<div class="form-group">
+<label>Description</label>
+<textarea id="achDesc" placeholder="Enter achievement details"></textarea>
+</div>
+<button onclick="addAchievement()">Add Achievement</button>
+</div>
+<h3 style="color:#2f3c8f;margin-top:30px">Achievements List</h3>
+<div id="achievements-list"></div>
+</div>
+<script>
+let achievementsCache=[];
+let pageReady=false;
+function displayAchievements(){
+if(!pageReady) return;
+const list=document.getElementById('achievements-list');
+list.innerHTML='';
+for(let i=0;i<achievementsCache.length;i++){
+const a=achievementsCache[i];
+list.innerHTML+='<div class="achievement-item"><div><h3>'+a.name+'</h3><p><strong>'+a.cat+'</strong> - '+a.desc+'</p></div><button class="delete-btn" onclick="deleteAchievement('+i+')">Delete</button></div>';
+}
+}
+function addAchievement(){
+const name=document.getElementById('achName').value.trim();
+const cat=document.getElementById('achCat').value;
+const desc=document.getElementById('achDesc').value.trim();
+if(!name||cat==='Select Category'||!desc){alert('Fill all fields');return}
+achievementsCache.unshift({name:name,cat:cat,desc:desc});
+localStorage.setItem('achievements',JSON.stringify(achievementsCache));
+document.getElementById('achName').value='';
+document.getElementById('achCat').value='Select Category';
+document.getElementById('achDesc').value='';
+alert('Achievement added');
+displayAchievements();
+}
+function deleteAchievement(i){
+achievementsCache.splice(i,1);
+localStorage.setItem('achievements',JSON.stringify(achievementsCache));
+displayAchievements();
+}
+function loadAchievements(){
+try{
+achievementsCache=JSON.parse(localStorage.getItem('achievements'))||[];
+}catch(e){
+achievementsCache=[];
+}
+pageReady=true;
+displayAchievements();
+}
+loadAchievements();
+</script>
+</body>
+</html>

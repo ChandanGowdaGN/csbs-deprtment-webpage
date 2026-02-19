@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Students - MITM CSBS Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+body{background:#f4f6fa}
+.container{max-width:1000px;margin:40px auto;padding:30px;background:white;border-radius:8px}
+h1{color:#2f3c8f;margin-bottom:30px}
+.form-group{margin-bottom:15px}
+label{display:block;color:#2f3c8f;font-weight:600;margin-bottom:5px}
+input, select{width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-family:Poppins}
+button{background:#ff6600;color:white;padding:12px 24px;border:none;border-radius:4px;cursor:pointer;font-weight:600}
+button:hover{background:#e55a00}
+.student-item{background:#f0f2f5;padding:15px;margin:10px 0;border-left:4px solid #ff6600;border-radius:4px;display:flex;justify-content:space-between;align-items:center}
+.student-item h3{color:#2f3c8f}
+.delete-btn{background:#d32f2f;padding:8px 16px;font-size:12px}
+.delete-btn:hover{background:#b81c1c}
+.back-btn{background:#2f3c8f;padding:10px 20px;margin-bottom:20px}
+.back-btn:hover{background:#1f2456}
+</style>
+</head>
+<body>
+<div class="container">
+<div style="display:flex;gap:10px">
+<button class="back-btn" onclick="window.location.href='admin-dashboard.html'">← Back to Dashboard</button>
+<button class="back-btn" onclick="window.location.href='index.html'">🏠 Home</button>
+</div>
+<h1>👨‍🎓 Manage Students</h1>
+<div style="margin-bottom:30px">
+<h3 style="color:#2f3c8f;margin-bottom:15px">Add New Student</h3>
+<div class="form-group">
+<label>Student Name</label>
+<input type="text" id="stuName" placeholder="Enter student name">
+</div>
+<div class="form-group">
+<label>Semester</label>
+<select id="stuSem">
+<option>Select Semester</option>
+<option>1st Semester</option>
+<option>2nd Semester</option>
+<option>3rd Semester</option>
+<option>4th Semester</option>
+</select>
+</div>
+<button onclick="addStudent()">Add Student</button>
+</div>
+<h3 style="color:#2f3c8f;margin-top:30px">Students List</h3>
+<div id="students-list"></div>
+</div>
+<script>
+let studentsCache=[];
+let pageReady=false;
+function displayStudents(){
+if(!pageReady) return;
+const list=document.getElementById('students-list');
+list.innerHTML='';
+for(let i=0;i<studentsCache.length;i++){
+const s=studentsCache[i];
+list.innerHTML+='<div class="student-item"><div><h3>'+s.name+'</h3><p>'+s.sem+'</p></div><button class="delete-btn" onclick="deleteStudent('+i+')">Delete</button></div>';
+}
+}
+function addStudent(){
+const name=document.getElementById('stuName').value.trim();
+const sem=document.getElementById('stuSem').value;
+if(!name||sem==='Select Semester'){alert('Fill all fields');return}
+studentsCache.unshift({name:name,sem:sem});
+localStorage.setItem('students',JSON.stringify(studentsCache));
+document.getElementById('stuName').value='';
+document.getElementById('stuSem').value='Select Semester';
+alert('Student added');
+displayStudents();
+}
+function deleteStudent(i){
+studentsCache.splice(i,1);
+localStorage.setItem('students',JSON.stringify(studentsCache));
+displayStudents();
+}
+function loadStudents(){
+try{
+studentsCache=JSON.parse(localStorage.getItem('students'))||[];
+}catch(e){
+studentsCache=[];
+}
+pageReady=true;
+displayStudents();
+}
+loadStudents();
+</script>
+</body>
+</html>
